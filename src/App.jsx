@@ -6,15 +6,13 @@ import ErrorPage from 'pages/ErrorPage/ErrorPage';
 
 function App() {
   return (
-    <div>
-      <Routes>
-        <Route path="/" element={<SharedLayout />}>
-          <Route path="/first" element={<FirstPage />} />
-          <Route path="/second" element={<SecondPage />} />
-          <Route path="*" element={<ErrorPage />} />
-        </Route>
-      </Routes>
-    </div>
+    <Routes>
+      <Route path="/" element={<SharedLayout />}>
+        <Route path="/first" element={<FirstPage />} />
+        <Route path="/second" element={<SecondPage />} />
+        <Route path="*" element={<ErrorPage />} />
+      </Route>
+    </Routes>
   );
 }
 export default App;

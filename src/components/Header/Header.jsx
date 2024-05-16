@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 export const Header = () => {
 
   return (
-    <div>
+    <Header>
       <nav>
         <Link to="/first">
           First
@@ -12,6 +12,6 @@ export const Header = () => {
           Second
         </Link>
       </nav>
-    </div>
+    </Header>
   );
 };
