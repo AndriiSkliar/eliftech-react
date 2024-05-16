@@ -1,17 +1,16 @@
-import { Link } from 'react-router-dom';
+import { Contacts } from "./Contacts/Contacts";
+import { Logo } from "./Logo/Logo";
+import { NavMenu } from "./Nav/Nav";
 
 export const Header = () => {
 
   return (
-    <Header>
+    <header>
       <nav>
-        <Link to="/first">
-          First
-        </Link>
-        <Link to="/second">
-          Second
-        </Link>
+        <Logo />
+        <NavMenu/>
       </nav>
-    </Header>
+      <Contacts/>
+    </header>
   );
 };
