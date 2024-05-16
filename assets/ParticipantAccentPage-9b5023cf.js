@@ -1,1 +1,0 @@
-import{u as e,r,j as t}from"./index-67134324.js";const c=()=>{const{id:s}=e();return r.useEffect(()=>{console.log(s)},[s]),t.jsx("div",{children:t.jsxs("h1",{children:["Страница участника с ID ",s]})})};export{c as default};
