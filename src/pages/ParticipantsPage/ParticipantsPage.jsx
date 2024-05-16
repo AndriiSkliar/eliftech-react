@@ -1,7 +1,9 @@
+import { Title } from "../../components/Title/Title";
+
 const ParticipantsPage = () => {
   return (
     <div>
-      <h1>Participants page</h1>
+      <Title title='"Awesome events" participants' />
     </div>
   );
 };

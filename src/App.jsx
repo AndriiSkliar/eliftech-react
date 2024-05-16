@@ -19,10 +19,9 @@ function App() {
       <Route path="/" element={<SharedLayout />}>
         <Route index path="/events" element={<EventsPage />} />
         <Route path="/registration" element={<RegisterPage />} />
-        <Route path="/participants" element={<ParticipantsPage />} >
-          <Route path="/participants/:id" element={<ParticipantAccentPage />} />
-        </Route>
+        <Route path="/participants" element={<ParticipantsPage />} />
         <Route path="*" redirectTo="/events" element={<EventsPage />} />
+        <Route path="/participants/:id" element={<ParticipantAccentPage />} />
       </Route>
     </Routes>
   );

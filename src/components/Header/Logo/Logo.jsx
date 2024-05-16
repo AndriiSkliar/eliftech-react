@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 export const Logo = () => {
   return (
     <Link to="/events">
-        <p>Eliftech</p>
+        <span>Eliftech</span>
     </Link>
   );
 };

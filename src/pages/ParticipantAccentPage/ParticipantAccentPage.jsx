@@ -1,16 +1,13 @@
-import { useEffect } from "react";
 import { useParams } from "react-router-dom";
+import { Title } from "../../components/Title/Title";
 
 const ParticipantAccentPage = () => {
   const { id } = useParams();
-
-  useEffect(() => {
-    console.log(id); 
-  }, [id]);
-
+  console.log(id);
+  
   return (
     <div>
-      <h1>Страница участника с ID {id}</h1>
+      <Title title="Selected event of the participants"/>
     </div>
   );
 };
