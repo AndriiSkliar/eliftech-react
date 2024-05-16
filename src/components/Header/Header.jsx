@@ -1,6 +1,6 @@
 import { Contacts } from "./Contacts/Contacts";
 import { Logo } from "./Logo/Logo";
-import { NavMenu } from "./Nav/Nav";
+import { NavMenu } from "./NavMenu/NavMenu";
 
 export const Header = () => {
 
