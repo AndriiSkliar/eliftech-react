@@ -1,45 +1,50 @@
 import { useEffect, useState } from "react"
 import { RegisterForm } from "../Form/Form"
-import { fetchEventsData } from "../../../api";
 import { Loader } from '../Loader/Loader';
+import { filteredParsedEvents, processAndStoreEvents } from "./utils";
+import { createNewParticipant } from "../../../api";
 
 export const Register = () => {
   const [formData, setFormData] = useState(null);
   const [events, setEvents] = useState([]);
-  console.log('formData: ', formData);
+  const [isLoading, setIsLoading] = useState(false);
 
   useEffect(() => {
     const fetchData = async () => {
       const storedEvents = localStorage.getItem('events');
-      const page = 1;
       const limit = 50;
 
       if (storedEvents) {
         const parsedEvents = JSON.parse(storedEvents);
 
         if (parsedEvents.length >= limit) {
-          const filteredParsedEvents = parsedEvents.map(({ title, _id }) => ({ title, _id }));
-          setEvents(filteredParsedEvents);
+          setEvents(filteredParsedEvents(parsedEvents));
         } else {
-          const data = await fetchEventsData(page, limit);
-          const filteredData = data.map(({ title, _id }) => ({ title, _id }));
-          localStorage.setItem('events', JSON.stringify(filteredData));
-          setEvents(filteredData);
+          setEvents(await processAndStoreEvents(limit, setIsLoading));
         }
       } else {
-        const data = await fetchEventsData(page, limit);
-        const filteredData = data.map(({ title, _id }) => ({ title, _id }));
-        localStorage.setItem('events', JSON.stringify(filteredData));
-        setEvents(filteredData);
+        setEvents(await processAndStoreEvents(limit, setIsLoading));
       }
     };
 
     fetchData();
   }, []);
 
+  useEffect(() => {
+    const submitFormData = async () => {
+      if (formData) { 
+        setIsLoading(true);
+        await createNewParticipant(formData);
+        setIsLoading(false);
+      }
+    }
+
+    submitFormData();
+  }, [formData]);
+  
   return (
     <div>
-      {events.length < 0 && <Loader/>}
+      {isLoading && <Loader/>}
       {events.length > 0 && <RegisterForm setFormData={setFormData} events={events} />}
     </div>
   )

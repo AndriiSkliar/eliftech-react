@@ -1,15 +1,17 @@
 import { useParams } from "react-router-dom";
 import { Title } from "../../components/Title/Title";
+// import { ParticipantAccentList } from "../../components/ParticipantAccentList/ParticipantAccentList";
+import { ParticipantsList } from "../../components/ParticipantsList/ParticipantsList";
 
 const ParticipantAccentPage = () => {
   const { id } = useParams();
-  console.log(id);
   
   return (
     <div>
-      <Title title="Selected event of the participants"/>
+      <Title title="Selected event of the participants" />
+      <ParticipantsList id={id} />
     </div>
   );
-};
+}
 
-export default ParticipantAccentPage;
+export default ParticipantAccentPage
