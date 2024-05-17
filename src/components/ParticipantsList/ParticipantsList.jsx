@@ -4,15 +4,24 @@ import { fetchEventRegistrations, fetchParticipants } from "../../../api";
 import ParticipantCard from "../ParticipantCard/ParticipantCard";
 
 
-export const ParticipantsList = ({_id}) => {
+export const ParticipantsList = ({id}) => {
   const [participants, setParticipants] = useState(null);
   const [isLoading, setIsLoading] = useState(false);
     
   const fetchData = async () => {
     setIsLoading(true);
-    const data = _id ? await fetchEventRegistrations(_id) : await fetchParticipants();
-    console.log(data);
-    setParticipants(data);
+
+    if (id) {
+      const data = await fetchEventRegistrations(id);
+      // console.log('dataId: ', data);
+      setParticipants(data);
+    } else {
+      const data = await fetchParticipants();
+      // console.log('data: ', data);
+      setParticipants(data);
+     }
+    // const data = _id ? await fetchEventRegistrations(_id) : await fetchParticipants();
+    // setParticipants(data);
     setIsLoading(false);
   };
 

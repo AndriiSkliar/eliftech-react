@@ -1,6 +1,7 @@
 import axios from 'axios';
 
-const BASE_URL = 'https://eliftech-node.onrender.com/api';
+// const BASE_URL = 'https://eliftech-node.onrender.com/api';
+const BASE_URL = 'http://localhost:3000/api';
 
 export const fetchEventsData = async (page, limit) => {
   try {
@@ -38,7 +39,6 @@ export const fetchParticipants = async () => {
 };
 
 export const fetchEventRegistrations = async (id) => {
-  console.log(typeof id);
   try {
     const resp = await axios.get(`${BASE_URL}/participants/${id}`);
     const data = resp.data;
