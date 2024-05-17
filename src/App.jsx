@@ -1,5 +1,5 @@
 import { lazy } from 'react';
-import { Route, Routes, useLocation } from 'react-router-dom';
+import { Navigate, Route, Routes, useLocation } from 'react-router-dom';
 import SharedLayout from 'components/SharedLayout/SharedLayout';
 
 const EventsPage = lazy(() => import('./pages/EventsPage/EventsPage'));
@@ -18,10 +18,10 @@ function App() {
     <Routes>
       <Route path="/" element={<SharedLayout />}>
         <Route index path="/events" element={<EventsPage />} />
-        <Route path="/registration" element={<RegisterPage />} />
+        <Route path="/registration" element={<RegisterPage/>} />
         <Route path="/participants" element={<ParticipantsPage />} />
-        <Route path="*" redirectTo="/events" element={<EventsPage />} />
         <Route path="/participants/:id" element={<ParticipantAccentPage />} />
+        <Route path="*" element={<Navigate to="/events" />} />
       </Route>
     </Routes>
   );

@@ -6,7 +6,7 @@ const EventsPage = () => {
     <div>
       <h1>Events by Eliftech</h1>
       <Title title="Events"/>
-      <EventsList/>
+      <EventsList />
     </div>
   );
 };

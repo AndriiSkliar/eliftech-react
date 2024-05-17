@@ -1,8 +1,8 @@
 import { Link } from "react-router-dom";
 
-export const EventCard = ({ event }) => {
-    const { description, event_date, organizer, title, _id } = event;
-    
+export const EventCard = ({ event}) => {
+  const { description, event_date, organizer, title, _id } = event;
+  
   return (
     <div>
         <h3>{title}</h3>
