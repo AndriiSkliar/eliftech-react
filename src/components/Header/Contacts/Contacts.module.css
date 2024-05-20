@@ -1,0 +1,13 @@
+.contactsList {
+  display: flex;
+  flex-direction: column;
+  align-items: end;
+  gap: 4px;
+  flex-basis: 20%;
+  transition: color var(--transition);
+}
+
+.contactsLItem:hover,
+.contactsLItem:focus {
+  color: var(--accent-color);
+}

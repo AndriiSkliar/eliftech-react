@@ -22,7 +22,7 @@ export const ParticipantsList = ({id}) => {
   return (
     <div>
         {isLoading && <Loader/>}
-        {participants ? (
+        {!isLoading && participants ? (
             <ul>
                 {participants.map((participant) => (
                 <li key={participant._id}>

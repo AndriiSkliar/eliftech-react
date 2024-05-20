@@ -1,16 +1,17 @@
 import { NavLink } from "react-router-dom";
+import css from './NavMenu.module.css';
 
 export const NavMenu = () => {
   return (
-    <ul>
-        <li>
-            <NavLink to="/events">Events</NavLink>
+    <ul className={css.headerNavList}>
+        <li className={css.headerNavItem}>
+            <NavLink to="/events" className={({isActive}) => `${css.headerNavLink} ${isActive ? css.active : ''}`}>Events</NavLink>
         </li>
-        <li>
-            <NavLink to="/registration">Registration</NavLink>
+        <li className={css.headerNavItem}>
+            <NavLink to="/registration" className={({isActive}) => `${css.headerNavLink} ${isActive ? css.active : ''}`}>Registration</NavLink>
         </li>
-        <li>
-            <NavLink to="/participants">Participants</NavLink>
+        <li className={css.headerNavItem}>
+            <NavLink to="/participants" className={({isActive}) => `${css.headerNavLink} ${isActive ? css.active : ''}`}>Participants</NavLink>
         </li>
     </ul>
   );

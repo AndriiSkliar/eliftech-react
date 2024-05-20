@@ -1,0 +1,17 @@
+.eventCardAccent {
+  font-style: italic;
+  color: var(--second-color);
+}
+
+.eventCardNav {
+  margin-top: auto;
+  display: flex;
+  justify-content: space-between;
+  color: var(--accent-color);
+  transition: color var(--transition);
+}
+
+.eventCardLink:hover,
+.eventCardLink:focus {
+  color: var(--second-color);
+}

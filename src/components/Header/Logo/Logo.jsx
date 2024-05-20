@@ -1,10 +1,11 @@
-// import { ReactComponent as IconCat } from 'assets/icons/cat.svg'
 import { Link } from 'react-router-dom';
+import css from './Logo.module.css';
 
 export const Logo = () => {
   return (
-    <Link to="/events">
-        <span>Eliftech</span>
+    <Link to="/events" className={css.logo}>
+      <img src="/favicon.jpg" alt="Eliftech Logo" style={{ height: '40px' }} />
+      <span className={css.logoText}>Eliftech</span>
     </Link>
   );
 };

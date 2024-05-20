@@ -1,0 +1,21 @@
+.headerNavList {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+  flex-basis: 80%;
+  font-weight: 700;
+}
+
+.headerNavItem {
+  transition: color var(--transition);
+}
+
+.headerNavItem:hover,
+.headerNavItem:focus {
+  color: var(--accent-color);
+}
+
+.headerNavLink.active {
+  border-bottom: 2px solid var(--accent-color);
+}

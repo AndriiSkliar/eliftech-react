@@ -3,17 +3,16 @@ import { fetchEventsData } from "../../../api";
 import { EventCard } from "../EventCard/EventCard";
 import { Loader } from '../Loader/Loader';
 import InfiniteScroll from 'react-infinite-scroll-component';
+import css from './EventsList.module.css';
 
 export const EventsList = () => {
   const [events, setEvents] = useState([]);
   const [page, setPage] = useState(1);
-  const [isLoading, setIsLoading] = useState(false);
   const [hasMore, setHasMore] = useState(true);
   const [sortCriteria, setSortCriteria] = useState('hide');
   const limit = 12;
   
   const fetchData = async () => {
-    setIsLoading(true);
     const data = await fetchEventsData(page, limit);
 
     if (data.length === 0) { 
@@ -24,8 +23,6 @@ export const EventsList = () => {
 
       localStorage.setItem('events', JSON.stringify([...events, ...data]));
     }
-    
-    setIsLoading(false);
   };
 
   const sortEvents = (criteria) => {
@@ -54,20 +51,20 @@ export const EventsList = () => {
       next={fetchData}
       hasMore={hasMore}
       loader={<Loader/>}
-      endMessage={<p>No more data to load.</p>}
+      endMessage={<p className={css.eventsText}>No more data to load</p>}
       style={{
         overflow: 'none',
       }}
     >
-      {events && <select onChange={(e) => setSortCriteria(e.target.value)} value={sortCriteria}>
+      {events && <select className={css.eventsSelect} onChange={(e) => setSortCriteria(e.target.value)} value={sortCriteria}>
         <option value='hide'>Sort events by:</option>
         <option value="title">Title</option>
         <option value="event_date">Event Date</option>
         <option value="organizer">Organizer</option>
       </select>}
-      <ul>
+      <ul className={css.eventsList}>
         {events.map((event) => (
-          <li key={event._id}>
+          <li className={css.eventsItem} key={event._id}>
             <EventCard event={event} events={events} />
           </li>
         ))}

@@ -1,0 +1,31 @@
+.eventsText {
+  color: var(--accent-color);
+  text-align: center;
+  padding: 30px;
+}
+
+.eventsSelect {
+  border: 1px solid var(--second-color);
+  border-radius: 10px;
+  padding: 10px;
+  font-style: italic;
+  margin-bottom: 10px;
+}
+
+.eventsList {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+}
+
+.eventsItem {
+  width: calc((100% - 20px * 3) / 4);
+  border: 1px solid var(--accent-color);
+  border-radius: 5px;
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  min-height: 250px;
+}
