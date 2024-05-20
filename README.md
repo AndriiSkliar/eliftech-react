@@ -1,4 +1,4 @@
-#Eliftech - Events Registration App
+# Eliftech - Events Registration App
 
 (https://andriiskliar.github.io/eliftech-react/)
 

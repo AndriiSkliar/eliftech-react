@@ -59,12 +59,12 @@ export const EventsList = () => {
         overflow: 'none',
       }}
     >
-      <select onChange={(e) => setSortCriteria(e.target.value)} value={sortCriteria}>
+      {events && <select onChange={(e) => setSortCriteria(e.target.value)} value={sortCriteria}>
         <option value='hide'>Sort events by:</option>
         <option value="title">Title</option>
         <option value="event_date">Event Date</option>
         <option value="organizer">Organizer</option>
-      </select>
+      </select>}
       <ul>
         {events.map((event) => (
           <li key={event._id}>
