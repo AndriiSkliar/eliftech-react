@@ -49,3 +49,7 @@ events or for the current event.
 
 1.  Technical task
     (https://drive.google.com/file/d/1Z49Ui076paqpXVpwmS40i_cmPp-bh4Ho/view?usp=sharing)
+
+## Link to Backend Repo
+
+[link](https://github.com/AndriiSkliar/eliftech-node)
