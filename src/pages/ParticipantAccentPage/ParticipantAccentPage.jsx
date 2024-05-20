@@ -1,6 +1,5 @@
 import { useParams } from "react-router-dom";
 import { Title } from "../../components/Title/Title";
-// import { ParticipantAccentList } from "../../components/ParticipantAccentList/ParticipantAccentList";
 import { ParticipantsList } from "../../components/ParticipantsList/ParticipantsList";
 
 const ParticipantAccentPage = () => {

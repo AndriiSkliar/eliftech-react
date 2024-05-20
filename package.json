@@ -24,6 +24,7 @@
     "react-infinite-scroll-component": "^6.1.0",
     "react-loader-spinner": "^6.1.6",
     "react-router-dom": "^6.15.0",
+    "react-toastify": "^10.0.5",
     "vite-plugin-svgr": "^3.2.0",
     "yup": "^1.4.0"
   },

@@ -1,7 +1,10 @@
 import axios from 'axios';
+import {
+  showErrorToast,
+  showSuccessToast,
+} from './src/components/ErrorMessages/errorMessages';
 
-// const BASE_URL = 'https://eliftech-node.onrender.com/api';
-const BASE_URL = 'http://localhost:3000/api';
+const BASE_URL = 'https://eliftech-node.onrender.com/api';
 
 export const fetchEventsData = async (page, limit) => {
   try {
@@ -11,7 +14,7 @@ export const fetchEventsData = async (page, limit) => {
     const data = resp.data;
     return data;
   } catch (error) {
-    console.error('Error fetching events:', error);
+    showErrorToast(error.message);
   }
 };
 
@@ -22,9 +25,10 @@ export const createNewParticipant = async (participant) => {
       participant
     );
     const data = resp.data;
+    showSuccessToast('New Participant Created!');
     return data;
   } catch (error) {
-    console.error('Error fetching events:', error);
+    showErrorToast(error.message);
   }
 };
 
@@ -34,7 +38,7 @@ export const fetchParticipants = async () => {
     const data = resp.data;
     return data;
   } catch (error) {
-    console.error('Error fetching events:', error);
+    showErrorToast(error.message);
   }
 };
 
@@ -44,6 +48,6 @@ export const fetchEventRegistrations = async (id) => {
     const data = resp.data;
     return data;
   } catch (error) {
-    console.error('Error fetching events:', error);
+    showErrorToast(error.message);
   }
 };

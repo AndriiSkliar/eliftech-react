@@ -7,21 +7,11 @@ import ParticipantCard from "../ParticipantCard/ParticipantCard";
 export const ParticipantsList = ({id}) => {
   const [participants, setParticipants] = useState(null);
   const [isLoading, setIsLoading] = useState(false);
-    
+  
   const fetchData = async () => {
     setIsLoading(true);
-
-    if (id) {
-      const data = await fetchEventRegistrations(id);
-      // console.log('dataId: ', data);
-      setParticipants(data);
-    } else {
-      const data = await fetchParticipants();
-      // console.log('data: ', data);
-      setParticipants(data);
-     }
-    // const data = _id ? await fetchEventRegistrations(_id) : await fetchParticipants();
-    // setParticipants(data);
+    const data = id ? await fetchEventRegistrations(id) : await fetchParticipants();
+    setParticipants(data);
     setIsLoading(false);
   };
 
@@ -32,7 +22,7 @@ export const ParticipantsList = ({id}) => {
   return (
     <div>
         {isLoading && <Loader/>}
-        {participants && (
+        {participants ? (
             <ul>
                 {participants.map((participant) => (
                 <li key={participant._id}>
@@ -40,7 +30,9 @@ export const ParticipantsList = ({id}) => {
                 </li>
                 ))}
             </ul>
-        )}
+      ) : (
+        <p>no one has signed up for the event yet</p>
+      )}
     </div>
   )
 }
