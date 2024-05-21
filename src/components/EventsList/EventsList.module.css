@@ -21,11 +21,11 @@
 
 .eventsItem {
   width: calc((100% - 20px * 3) / 4);
+  min-height: 250px;
   border: 1px solid var(--accent-color);
   border-radius: 5px;
   padding: 10px;
   display: flex;
   flex-direction: column;
   gap: 5px;
-  min-height: 250px;
 }
