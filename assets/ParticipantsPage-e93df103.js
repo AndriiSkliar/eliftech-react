@@ -1,0 +1,1 @@
+import{j as t}from"./index-bb4830a7.js";import{T as s}from"./Title-14fb69be.js";import{P as i}from"./ParticipantsList-b99111e8.js";const o=()=>t.jsxs("div",{children:[t.jsx(s,{title:'"Awesome events" participants'}),t.jsx(i,{})]});export{o as default};
