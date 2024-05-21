@@ -3,6 +3,7 @@ import { RegisterForm } from "../Form/Form"
 import { Loader } from '../Loader/Loader';
 import { filteredParsedEvents, processAndStoreEvents } from "./utils";
 import { createNewParticipant } from "../../../api";
+import css from './Register.module.css';
 
 export const Register = () => {
   const [formData, setFormData] = useState(null);
@@ -43,7 +44,7 @@ export const Register = () => {
   }, [formData]);
   
   return (
-    <div>
+    <div className={css.formContainer}>
       {isLoading && <Loader/>}
       {events.length > 0 && <RegisterForm setFormData={setFormData} events={events} />}
     </div>

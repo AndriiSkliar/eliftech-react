@@ -1,3 +1,107 @@
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.formList {
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+}
+
+.formItem {
+  position: relative;
+  display: flex;
+  align-items: center;
+  margin-bottom: 15px;
+}
+
+.formInput,
+.formInputDate,
+.formEventInput {
+  border: 1px solid rgba(18, 20, 23, 0.1);
+  border-radius: 12px;
+  padding: 16px 18px;
+  width: 100%;
+  outline: 0;
+  transition: border var(--transition);
+}
+
+.formInput:hover,
+.formInput:focus,
+.formInputDate:hover,
+.formInputDate:focus,
+.formEventInput:hover,
+.formEventInput:focus {
+  border: 1px solid var(--accent-color);
+}
+
+.formLabel {
+  position: absolute;
+  left: 20px;
+  bottom: 50%;
+  line-height: 1.375;
+  transform: translate(0, 50%);
+  transition: transform var(--transition);
+}
+
+.formInput:focus + .formLabel {
+  transform: translateY(-100%);
+}
+
+.formInput:not(:placeholder-shown) + .formLabel {
+  transform: translateY(-100%);
+}
+
+.formInput::placeholder {
+  opacity: 0;
+}
+
 .errorMessage {
+  position: absolute;
+  bottom: -20px;
   color: brown;
+}
+
+.formItemDate {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  margin-bottom: 15px;
+}
+
+.formText {
+  margin-bottom: 10px;
+}
+
+.formFeedbackList {
+  display: flex;
+  gap: 20px;
+}
+
+.formFeedbackLabel {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.formBtn {
+  font-weight: 700;
+  border: 1px solid transparent;
+  border-radius: 15px;
+  padding: 15px;
+  transition:
+    color var(--transition),
+    background-color var(--transition);
+}
+
+.formBtn:hover,
+.formBtn:focus {
+  border: 1px solid var(--accent-color);
+}
+
+.formBtn:active {
+  background-color: var(--accent-color);
 }

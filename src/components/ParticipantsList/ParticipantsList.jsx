@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { Loader } from "../Loader/Loader";
 import { fetchEventRegistrations, fetchParticipants } from "../../../api";
 import ParticipantCard from "../ParticipantCard/ParticipantCard";
-
+import css from './ParticipantsList.module.css';
 
 export const ParticipantsList = ({id}) => {
   const [participants, setParticipants] = useState(null);
@@ -23,15 +23,15 @@ export const ParticipantsList = ({id}) => {
     <div>
         {isLoading && <Loader/>}
         {!isLoading && participants ? (
-            <ul>
+            <ul className={css.participantsList}>
                 {participants.map((participant) => (
-                <li key={participant._id}>
+                <li className={css.participantsItem} key={participant._id}>
                     <ParticipantCard participant={participant} />
                 </li>
                 ))}
             </ul>
       ) : (
-        <p>no one has signed up for the event yet</p>
+        <p className={css.participantsText}>no one has signed up for the event yet</p>
       )}
     </div>
   )

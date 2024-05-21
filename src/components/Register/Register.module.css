@@ -1,0 +1,5 @@
+.formContainer {
+  padding: 20px;
+  border: 1px solid var(--accent-color);
+  border-radius: 15px;
+}

@@ -9,7 +9,7 @@ export const RegisterForm = ({setFormData, events}) => {
   };
 
   return (
-    <div>
+    <>
       <Formik
         initialValues={{
           name: '', 
@@ -22,64 +22,65 @@ export const RegisterForm = ({setFormData, events}) => {
         validationSchema={registerValidationSchema}
       >
         {() => (
-          <Form>
-            <ul>
-              <li>
-                <Field type='text' name='name' id="name" />
-                <label htmlFor="name">Full name</label>
+          <Form className={css.form}>
+            <ul className={css.formList}>
+              <li className={css.formItem}>
+                <Field className={css.formInput} type='text' name='name' id="name" placeholder='Enter your full name'/>
+                <label className={css.formLabel} htmlFor="name">Full name</label>
                 <ErrorMessage className={css.errorMessage} name="name" component="div"/>
               </li>
-              <li>
-                <Field type='email' name='email' id="email" />
-                <label htmlFor="email">Email</label>
+              <li className={css.formItem}>
+                <Field className={css.formInput} type='email' name='email' id="email" placeholder='Enter your email'/>
+                <label className={css.formLabel} htmlFor="email">Email</label>
                 <ErrorMessage  className={css.errorMessage} name="email" component="div"/>
               </li>
-              <li>
-                <Field type='date' name='birthday' id="birthday" />
-                <label htmlFor="birthday">Date of birth</label>
+              <li className={css.formItem}>
+                <Field className={css.formInput} type='date' name='birthday' id="birthday" placeholder='Select your birth date'/>
+                <label className={css.formLabel} htmlFor="birthday">Date of birth</label>
                 <ErrorMessage  className={css.errorMessage} name="birthday" component="div"/>
               </li>
               <li>
-                  <ul>
-                      <li>
-                          <label>
-                              <Field type="radio" name="eventFeedback" value="social media" />
-                              Social media
-                          </label>
-                          <ErrorMessage  className={css.errorMessage} name="eventFeedback" component="div" />
-                      </li>
-                      <li>
-                          <label>
-                              <Field type="radio" name="eventFeedback" value="friends" />
-                              Friends
-                          </label>
-                          <ErrorMessage  className={css.errorMessage} name="eventFeedback" component="div" />
-                      </li>
-                      <li>
-                          <label>
-                              <Field type="radio" name="eventFeedback" value="found myself" />
-                              Found myself
-                          </label>
-                          <ErrorMessage  className={css.errorMessage} name="eventFeedback" component="div" />
-                      </li>
-                  </ul>
+                <p className={css.formText}>Where did you hear about this event?</p>
+                <ul className={css.formFeedbackList}>
+                    <li>
+                        <label className={css.formFeedbackLabel}>
+                            <Field type="radio" name="eventFeedback" value="social media" />
+                            Social media
+                        </label>
+                        <ErrorMessage  className={css.errorMessage} name="eventFeedback" component="div" />
+                    </li>
+                    <li>
+                        <label className={css.formFeedbackLabel}>
+                            <Field type="radio" name="eventFeedback" value="friends" />
+                            Friends
+                        </label>
+                        <ErrorMessage  className={css.errorMessage} name="eventFeedback" component="div" />
+                    </li>
+                    <li>
+                        <label className={css.formFeedbackLabel}>
+                            <Field type="radio" name="eventFeedback" value="found myself" />
+                            Found myself
+                        </label>
+                        <ErrorMessage  className={css.errorMessage} name="eventFeedback" component="div" />
+                    </li>
+                </ul>
               </li>
-              <li>
-                <Field as="select" id="eventId" name="eventId">
+              <li className={css.formEventItem}>
+                <label htmlFor="eventId">Change event</label>
+                <Field className={css.formEventInput} as="select" id="eventId" name="eventId">
                   {events.map(({title, _id}) => (
                     <option key={_id} value={_id}>
                       {title}
                     </option>
                   ))}
                 </Field>
-                <label htmlFor="eventId">Change event</label>
                 <ErrorMessage  className={css.errorMessage} name="eventId" component="div"/>
               </li>
             </ul>
-            <button type="submit">Submit</button>
+            <button className={css.formBtn} type="submit">Submit</button>
           </Form>
         )}
       </Formik>
-    </div>
+    </>
   );
 };

@@ -16,6 +16,10 @@
   color: var(--accent-color);
 }
 
+.headerNavLink {
+  padding-bottom: 5px;
+}
+
 .headerNavLink.active {
   border-bottom: 2px solid var(--accent-color);
 }
