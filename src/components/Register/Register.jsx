@@ -46,7 +46,7 @@ export const Register = () => {
   return (
     <div className={css.formContainer}>
       {isLoading && <Loader/>}
-      {events.length > 0 && <RegisterForm setFormData={setFormData} events={events} />}
+      {events.length > 0 && <RegisterForm setFormData={setFormData} events={events} isLoading={isLoading} />}
     </div>
   )
 }

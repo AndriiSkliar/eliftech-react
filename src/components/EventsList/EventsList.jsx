@@ -10,9 +10,11 @@ export const EventsList = () => {
   const [page, setPage] = useState(1);
   const [hasMore, setHasMore] = useState(true);
   const [sortCriteria, setSortCriteria] = useState('hide');
+  const [loading, setLoading] = useState(false);
   const limit = 12;
   
   const fetchData = async () => {
+    setLoading(true);
     const data = await fetchEventsData(page, limit);
 
     if (data.length === 0) { 
@@ -23,6 +25,7 @@ export const EventsList = () => {
 
       localStorage.setItem('events', JSON.stringify([...events, ...data]));
     }
+    setLoading(false);
   };
 
   const sortEvents = (criteria) => {
@@ -46,17 +49,16 @@ export const EventsList = () => {
   }, [sortCriteria]);
   
   return (
+    <>
+    {loading && <Loader />}
     <InfiniteScroll
       dataLength={events.length}
       next={fetchData}
       hasMore={hasMore}
-      loader={<Loader/>}
       endMessage={<p className={css.eventsText}>No more data to load</p>}
-      style={{
-        overflow: 'none',
-      }}
+
     >
-      {events && <select className={css.eventsSelect} onChange={(e) => setSortCriteria(e.target.value)} value={sortCriteria}>
+      {events.length > 0 && <select className={css.eventsSelect} onChange={(e) => setSortCriteria(e.target.value)} value={sortCriteria}>
         <option value='hide'>Sort events by:</option>
         <option value="title">Title</option>
         <option value="event_date">Event Date</option>
@@ -69,6 +71,7 @@ export const EventsList = () => {
           </li>
         ))}
       </ul>
-    </InfiniteScroll>
+      </InfiniteScroll>
+    </>
   )
 }

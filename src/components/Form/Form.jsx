@@ -2,11 +2,13 @@ import { Formik, Form, Field, ErrorMessage } from 'formik';
 import { registerValidationSchema } from './registerValidationSchema';
 import css from './Form.module.css';
 
-export const RegisterForm = ({setFormData, events}) => {
+export const RegisterForm = ({setFormData, events, isLoading}) => {
   const handleSubmit = values => {
     const event = events.find(event => event._id === values.eventId).title;
     setFormData({...values, event}); 
   };
+
+  const today = new Date().toISOString().split('T')[0];
 
   return (
     <>
@@ -35,7 +37,7 @@ export const RegisterForm = ({setFormData, events}) => {
                 <ErrorMessage  className={css.errorMessage} name="email" component="div"/>
               </li>
               <li className={css.formItem}>
-                <Field className={css.formInput} type='date' name='birthday' id="birthday" placeholder='Select your birth date'/>
+                <Field className={css.formInput} type='date' name='birthday' id="birthday" placeholder='Select your birth date' max={today}/>
                 <label className={css.formLabel} htmlFor="birthday">Date of birth</label>
                 <ErrorMessage  className={css.errorMessage} name="birthday" component="div"/>
               </li>
@@ -77,7 +79,9 @@ export const RegisterForm = ({setFormData, events}) => {
                 <ErrorMessage  className={css.errorMessage} name="eventId" component="div"/>
               </li>
             </ul>
-            <button className={css.formBtn} type="submit">Submit</button>
+            <button className={css.formBtn} type="submit" disabled={isLoading}>
+              {isLoading ? 'Submitting...' : 'Submit'}
+            </button>
           </Form>
         )}
       </Formik>
