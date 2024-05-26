@@ -21,18 +21,17 @@ export const ParticipantsList = ({id}) => {
     
   return (
     <div>
-        {isLoading && <Loader/>}
-        {!isLoading && participants ? (
-            <ul className={css.participantsList}>
-                {participants.map((participant) => (
-                <li className={css.participantsItem} key={participant._id}>
-                    <ParticipantCard participant={participant} />
-                </li>
-                ))}
-            </ul>
-      ) : (
-        <p className={css.participantsText}>no one has signed up for the event yet</p>
-      )}
+      {isLoading && <Loader/>}
+      {!isLoading && participants &&
+        <ul className={css.participantsList}>
+          {participants.map((participant) => (
+            <li className={css.participantsItem} key={participant._id}>
+              <ParticipantCard participant={participant} />
+            </li>
+          ))}
+        </ul>}
+      
+       {!isLoading && !participants && <p className={css.participantsText}>no one has signed up for the event yet</p>}
     </div>
   )
 }

@@ -5,11 +5,12 @@ import {
 } from './src/components/ErrorMessages/errorMessages';
 
 const BASE_URL = 'https://eliftech-node.onrender.com/api';
+// const BASE_URL = 'http://localhost:3000/api';
 
-export const fetchEventsData = async (page, limit) => {
+export const fetchEventsData = async (page, limit, sort) => {
   try {
     const resp = await axios.get(
-      `${BASE_URL}/events?page=${page}&limit=${limit}`
+      `${BASE_URL}/events?page=${page}&limit=${limit}&sort=${sort}`
     );
     const data = resp.data;
     return data;

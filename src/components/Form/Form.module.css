@@ -37,21 +37,30 @@
   border: 1px solid var(--accent-color);
 }
 
-.formLabel {
+.formLabel,
+.formLabelDate {
   position: absolute;
   left: 20px;
   bottom: 50%;
   line-height: 1.375;
   transform: translate(0, 50%);
-  transition: transform var(--transition);
+  transition:
+    transform var(--transition),
+    font-size var(--transition),
+    color var(--transition);
 }
 
-.formInput:focus + .formLabel {
-  transform: translateY(-100%);
+.formInput:focus + .formLabel,
+.formInputDate:focus + .formLabelDate,
+.formInput:not(:placeholder-shown) + .formLabel,
+.formInputDate.filled + .formLabelDate {
+  transform: translateY(-20%);
+  font-size: 14px;
+  color: var(--accent-color);
 }
 
 .formInput:not(:placeholder-shown) + .formLabel {
-  transform: translateY(-100%);
+  transform: translateY(-20%);
 }
 
 .formInput::placeholder {
@@ -64,12 +73,8 @@
   color: brown;
 }
 
-.formItemDate {
-  position: relative;
-  display: flex;
-  flex-direction: column;
-  gap: 2px;
-  margin-bottom: 15px;
+.formLabelDate {
+  background-color: var(--background-color);
 }
 
 .formText {

@@ -23,7 +23,7 @@ export const RegisterForm = ({setFormData, events, isLoading}) => {
         onSubmit={handleSubmit}
         validationSchema={registerValidationSchema}
       >
-        {() => (
+        {({ values }) => (
           <Form className={css.form}>
             <ul className={css.formList}>
               <li className={css.formItem}>
@@ -37,8 +37,8 @@ export const RegisterForm = ({setFormData, events, isLoading}) => {
                 <ErrorMessage  className={css.errorMessage} name="email" component="div"/>
               </li>
               <li className={css.formItem}>
-                <Field className={css.formInput} type='date' name='birthday' id="birthday" placeholder='Select your birth date' max={today}/>
-                <label className={css.formLabel} htmlFor="birthday">Date of birth</label>
+                <Field className={`${css.formInputDate} ${values.birthday ? css.filled : ''}`} type='date' name='birthday' id="birthday" placeholder='Select your birth date' max={today}/>
+                <label className={css.formLabelDate} htmlFor="birthday">Date of birth</label>
                 <ErrorMessage  className={css.errorMessage} name="birthday" component="div"/>
               </li>
               <li>

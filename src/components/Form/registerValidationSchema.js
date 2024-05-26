@@ -4,6 +4,7 @@ export const registerValidationSchema = Yup.object().shape({
   name: Yup.string()
     .required('Full name is required')
     .min(3, 'Name must be at least 3 characters long')
+    .max(20, 'The name must be no more than 20 characters long')
     .matches(/[A-Za-z]+/, 'Name must contain at least one letter')
     .matches(/^[A-Za-z\s]+$/, 'Name must contain only letters and spaces'),
   email: Yup.string()
