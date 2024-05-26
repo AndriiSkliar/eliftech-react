@@ -1,5 +1,7 @@
 import * as Yup from 'yup';
 
+export const today = new Date().toISOString().split('T')[0];
+
 export const registerValidationSchema = Yup.object().shape({
   name: Yup.string()
     .required('Full name is required')
@@ -14,7 +16,9 @@ export const registerValidationSchema = Yup.object().shape({
       'Emails: digits, letters, . - _ only, e.g., example@mail.com.'
     )
     .email('Invalid email format, example@example.com'),
-  birthday: Yup.date().required('Birthday is required'),
+  birthday: Yup.date()
+    .required('Birthday is required')
+    .max(today, `Maximum value should be ${today}`),
   eventFeedback: Yup.string()
     .required('Event feedback is required')
     .oneOf(

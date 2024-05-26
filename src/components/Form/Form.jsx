@@ -1,5 +1,5 @@
 import { Formik, Form, Field, ErrorMessage } from 'formik';
-import { registerValidationSchema } from './registerValidationSchema';
+import { registerValidationSchema, today } from './registerValidationSchema';
 import css from './Form.module.css';
 
 export const RegisterForm = ({setFormData, events, isLoading}) => {
@@ -8,7 +8,6 @@ export const RegisterForm = ({setFormData, events, isLoading}) => {
     setFormData({...values, event}); 
   };
 
-  const today = new Date().toISOString().split('T')[0];
 
   return (
     <>
