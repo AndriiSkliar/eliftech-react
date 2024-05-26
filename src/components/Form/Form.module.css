@@ -58,10 +58,12 @@
   transform: translateY(-30%);
   font-size: 14px;
   color: var(--accent-color);
+  background-color: transparent;
 }
 
 .formInput:not(:placeholder-shown) + .formLabel {
   transform: translateY(-30%);
+  background-color: transparent;
 }
 
 .formInput::placeholder {
